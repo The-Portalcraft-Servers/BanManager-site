@@ -26,10 +26,10 @@
 
                 if ($row['time'] > time()) {
                     echo '<div class="row" style="margin-top:20px">
-                <div class="col-md-3"><img src="https://minotar.net/helm/' . $row["name"] . '/30.png"> ' . $row["name"] . '</div>
+                <div class="col-md-3"><img src="https://minotar.net/helm/' . $row["name"] . '/30.png" > ' . $row["name"] . '</div>
                 <div class="col-md-3">' . $row["reason"] . '</div>
                 <div class="col-md-3">' . gmdate("Y-m-d H:i:s ", $row['time']) . '</div>
-                <div class="col-md-2">' . $row["banner"] . '</div><div class="col-md-1"><a href="#"><span class="glyphicon glyphicon-trash"></span></a></div>   
+                <div class="col-md-2"><img src="https://minotar.net/helm/' . $row["banner"] . '/30.png" > ' . $row["banner"] . '</div><div class="col-md-1"><a href="#"><span class="glyphicon glyphicon-trash"></span></a></div>   
             </div>';
                 }
             }

@@ -31,7 +31,8 @@
 
             <!-- Profile -->
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <?php
                     $email = $_SESSION['email'];
                     $default = "https://minotar.net/helm/" . $_SESSION['user'] . "/20.png";
                     $size = 20;
@@ -40,7 +41,22 @@
                     ?> <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="profile.php">Profile</a></li>
-                    <li><a href="admin.php">Admin</a></li>
+                    <?php
+                    include 'config.php';
+                    $con = mysqli_connect($conf['url'], $conf['user'], $conf['password'], $conf['database']);
+
+                    if (mysqli_connect_errno()) {
+                        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+                    }
+
+                    $result = mysqli_query($con, "SELECT * FROM " . $conf['auth-table'] . " WHERE `username` = '" . $_SESSION['user'] . "'");
+
+                    while ($row = mysqli_fetch_array($result)) {
+                        if ($row['admin'] != "") {
+                            echo '<li><a href="admin.php">Admin</a></li>';
+                        }
+                    }
+                    ?>
                     <li class="divider"></li>
                     <li><a href="logout.php">Logout</a></li>
                 </ul>

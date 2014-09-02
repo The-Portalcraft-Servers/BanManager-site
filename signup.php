@@ -45,7 +45,7 @@
 
                 $checkResult = $ga->verifyCode($secret, $otp, 2);
                 if ($checkResult) {
-                    $i = "INSERT INTO " . $conf['auth-table'] . " (`username`, `email`, `otp`) VALUES ('" . $username . "', '" . $email . "', '" . $secret . "');";
+                    $i = "INSERT INTO " . $conf['auth-table'] . " (`username`, `email`, `otp`, `admin`) VALUES ('" . $username . "', '" . $email . "', '" . $secret . "', '');";
                     $insert = mysql_query($i);
                     session_start();
                     $_SESSION['user'] = $username;

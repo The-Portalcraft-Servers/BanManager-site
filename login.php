@@ -60,7 +60,7 @@
             <div class="panel" style="margin-left: auto;
                  margin-right: auto;margin-top: auto;margin-bottom: auto;width: 500px">
                 <form class="form-signin" role="form" action="" method="POST">
-                    <h2 class="form-signin-heading">BanManager</h2>
+                    <h2 class="form-signin-heading">BanManager<img height="32" width="32" src="resources/logo.png"></h2>
                     <input type="text" name="username" class="form-control" placeholder="Username" required="" autofocus="" autocomplete="off" style="margin-top: 20px">
                     <input type="text" name="otp" class="form-control" placeholder="OTP" required="" autofocus="" autocomplete="off" style="margin-top: 10px">
                     <p>Don't have an account? <a href='signup.php'>Sign up</a></p><div align="right"><button class="btn btn-primary " type="submit" name="subDoLoginAction" style="margin-top: 5px" >Login</button></div>
