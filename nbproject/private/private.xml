@@ -2,20 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Program%20Files%20(x86)/Xampp/htdocs/BanManager/config.json</file>
-            <file>file:/C:/Program%20Files%20(x86)/Xampp/htdocs/BanManager/admin.php</file>
-            <file>file:/C:/Program%20Files%20(x86)/Xampp/htdocs/BanManager/resources/account.php</file>
-            <file>file:/C:/Program%20Files%20(x86)/Xampp/htdocs/BanManager/resources/GoogleAuthenticator.php</file>
-            <file>file:/C:/Program%20Files%20(x86)/Xampp/htdocs/BanManager/login.php</file>
-            <file>file:/C:/Program%20Files%20(x86)/Xampp/htdocs/BanManager/googleauth.php</file>
-            <file>file:/C:/Program%20Files%20(x86)/Xampp/htdocs/BanManager/removeban.php</file>
-            <file>file:/C:/Program%20Files%20(x86)/Xampp/htdocs/BanManager/bans.php</file>
-            <file>file:/C:/Program%20Files%20(x86)/Xampp/htdocs/BanManager/logout.php</file>
-            <file>file:/C:/Program%20Files%20(x86)/Xampp/htdocs/BanManager/profile.php</file>
-            <file>file:/C:/Program%20Files%20(x86)/Xampp/htdocs/BanManager/index.php</file>
-            <file>file:/C:/Program%20Files%20(x86)/Xampp/htdocs/BanManager/config.php</file>
-            <file>file:/C:/Program%20Files%20(x86)/Xampp/htdocs/BanManager/session.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

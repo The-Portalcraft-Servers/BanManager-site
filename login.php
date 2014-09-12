@@ -10,7 +10,12 @@
         <link rel="icon" type="image/vnd.microsoft.icon"  href="./resources/favicon.ico"/>
         <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
-        <title></title>
+        <title>
+            <?php
+            include 'config.php';
+            echo $conf['title']
+            ?>
+        </title>
     </head>
     <body>
         <?php
@@ -27,18 +32,18 @@
 
             $ga = new PHPGangsta_GoogleAuthenticator();
 
-            $connect = mysql_connect($conf['url'], $conf['user'], $conf['password']) or die("Connection problem.");
-            mysql_select_db($conf['database']) or die("Couldn't connect to the database");
+            $con = mysqli_connect($conf['url'], $conf['user'], $conf['password'], $conf['database']);
 
-
-            $query = mysql_query("SELECT * FROM " . $conf['auth-table'] . " WHERE username='" . $username . "'");
+            $query = $con->prepare("SELECT * FROM `".$conf['auth-table'] . "` WHERE username = ?");
+            $query->bind_param("s", $username);
+            $query->execute();
 
             if ($query != null) {
-                $numrow = mysql_num_rows($query);
+                $numrow = $query->num_rows;
 
                 if ($numrow != 0) {
 
-                    $row = mysql_fetch_assoc($query);
+                    $row = mysqli_fetch_assoc($query);
 
                     if ($username == $row["username"]) {
                         $checkResult = $ga->verifyCode($row['otp'], $otp, 2);
@@ -66,8 +71,6 @@
                     <p>Don't have an account? <a href='signup.php'>Sign up</a></p><div align="right"><button class="btn btn-primary " type="submit" name="subDoLoginAction" style="margin-top: 5px" >Login</button></div>
                 </form>
             </div>
-
-
         </div>
     </body>
 </html>

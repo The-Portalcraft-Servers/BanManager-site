@@ -29,7 +29,7 @@
                         echo '<tr>
                         <td>' . $row['username'] . '</td>
                         <td>' . $row['email'] . '</td>';
-                        if ($row['admin'] != "") {
+                        if ($row['admin'] == "1") {
                             echo'
                         <td><span class="glyphicon glyphicon-ok" style="color: green"></td>
                     </tr>';

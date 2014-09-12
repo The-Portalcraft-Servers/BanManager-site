@@ -10,7 +10,12 @@
         <link rel="icon" type="image/vnd.microsoft.icon"  href="./resources/favicon.ico"/>
         <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
-        <title></title>
+        <title>
+        <?php
+        include 'config.php';
+        echo $conf['title']
+        ?>
+    </title>
     </head>
     <body>
         <?php
@@ -45,7 +50,7 @@
 
                 $checkResult = $ga->verifyCode($secret, $otp, 2);
                 if ($checkResult) {
-                    $i = "INSERT INTO " . $conf['auth-table'] . " (`username`, `email`, `otp`, `admin`) VALUES ('" . $username . "', '" . $email . "', '" . $secret . "', '');";
+                    $i = "INSERT INTO " . $conf['auth-table'] . " (`username`, `email`, `otp`, `admin`) VALUES ('" . $username . "', '" . $email . "', '" . $secret . "', '0');";
                     $insert = mysql_query($i);
                     session_start();
                     $_SESSION['user'] = $username;

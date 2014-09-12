@@ -13,7 +13,7 @@
             </div>
 
             <div id="right" style="margin-left: 10px">
-                asd
+                
             </div>
 
 

@@ -9,10 +9,10 @@
             <!-- Ban  -->  
             <li ><a href="bans.php">Bans</a></li>
 
-            <!-- Link  -->
+            <!--
             <li><a href="#">Link</a></li>
 
-            <!-- Dropdown -->
+           
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
@@ -25,6 +25,7 @@
                     <li><a href="#">One more separated link</a></li>
                 </ul>
             </li>
+            -->
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
@@ -40,7 +41,7 @@
                     echo '<img src=' . $grav_url . '"> ' . ucfirst("" . $_SESSION['user']);
                     ?> <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="profile.php">Profile</a></li>
+                    <li class="disabled"><a href="profile.php">Profile</a></li>
                     <?php
                     include 'config.php';
                     $con = mysqli_connect($conf['url'], $conf['user'], $conf['password'], $conf['database']);
