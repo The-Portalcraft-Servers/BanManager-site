@@ -42,7 +42,10 @@
                 <div class="col-md-3"><img src="https://minotar.net/helm/' . $row["name"] . '/30.png" > ' . $row["name"] . '</div>' .
                     '<div class="col-md-3">' . $row["reason"] . '</div>' .
                     '<div class="col-md-3">' . gmdate("Y-m-d H:i:s ", $row['time']) . '</div>';
-                    echo '<div class="col-md-2">'; if($row["banner"] != "CONSOLE") { echo '<img src="https://minotar.net/helm/' . $row["banner"] . '/30.png" > '; } echo $row["banner"] . '</div>';
+                    echo '<div class="col-md-2">';
+                    if ($row["banner"] != "CONSOLE") {
+                        echo '<img src="https://minotar.net/helm/' . $row["banner"] . '/30.png" > ';
+                    } echo $row["banner"] . '</div>';
                     echo '<div class="col-md-1"><a href="bans.php?unban=' . $row['UUID'] . '"><span class="glyphicon glyphicon-trash"></span></a></div>';
                     echo '</div>';
                 }

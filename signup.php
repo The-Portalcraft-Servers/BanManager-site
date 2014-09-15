@@ -11,11 +11,11 @@
         <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
         <title>
-        <?php
-        include 'config.php';
-        echo $conf['title']
-        ?>
-    </title>
+            <?php
+            include 'config.php';
+            echo $conf['title']
+            ?>
+        </title>
     </head>
     <body>
         <?php
@@ -39,31 +39,37 @@
 
 
             $query = mysql_query("SELECT * FROM " . $conf['auth-table'] . " WHERE username='" . $username . "'");
+            $check = mysql_query("SELECT * FROM `portalcraft`.`ranks` WHERE Player = '" . $username . "'");
 
-
+            $isstated = mysql_num_rows($check);
             $numrow = mysql_num_rows($query);
 
-            if ($numrow == 0) {
+            if ($isstated == 0) {
+                if ($numrow == 0) {
 
-                $row = mysql_fetch_assoc($query);
+                    $row = mysql_fetch_assoc($query);
 
 
-                $checkResult = $ga->verifyCode($secret, $otp, 2);
-                if ($checkResult) {
-                    $i = "INSERT INTO " . $conf['auth-table'] . " (`username`, `email`, `otp`, `admin`) VALUES ('" . $username . "', '" . $email . "', '" . $secret . "', '0');";
-                    $insert = mysql_query($i);
-                    session_start();
-                    $_SESSION['user'] = $username;
-                    $_SESSION['email'] = $row['email'];
-                    header('Location: index.php');
+                    $checkResult = $ga->verifyCode($secret, $otp, 2);
+                    if ($checkResult) {
+                        $i = "INSERT INTO " . $conf['auth-table'] . " (`username`, `email`, `otp`, `admin`) VALUES ('" . $username . "', '" . $email . "', '" . $secret . "', '0');";
+                        $insert = mysql_query($i);
+                        session_start();
+                        $_SESSION['user'] = $username;
+                        $_SESSION['email'] = $row['email'];
+                        header('Location: index.php');
+                    } else {
+                        echo '<div class="alert alert-danger" style="width: 500px;margin-left: auto;
+    margin-right: auto">The OTP is incorrect</div>';
+                    }
                 } else {
                     echo '<div class="alert alert-danger" style="width: 500px;margin-left: auto;
-    margin-right: auto">The OTP is incorrect</div>';
+    margin-right: auto">That name is already taken</div>';
                 }
             } else {
                 echo '<div class="alert alert-danger" style="width: 500px;margin-left: auto;
-    margin-right: auto">That name is already taken</div>';
-            }
+    margin-right: auto">Your username is not listed as a member of the staff</div>';
+        }
         }
         ?>
 
@@ -82,7 +88,7 @@
                 echo "<input type='hidden' name='secret' required=''value='" . $secret . "'>";
 
                 $qrCodeUrl = $ga->getQRCodeGoogleUrl('BanManager', $secret);
-                echo '<center> <img src="' . $qrCodeUrl . '"</center>';
+                echo '<center> <img src = "' . $qrCodeUrl . '"</center>';
                 ?>
 
                 <input type="text" name="otp" class="form-control" placeholder="OTP" required="" autofocus="" autocomplete="off" style="margin-top: 10px">

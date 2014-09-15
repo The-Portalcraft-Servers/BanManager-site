@@ -10,7 +10,7 @@
                     <tr>
                         <th>User</th>
                         <th>Email</th>
-                        <th>Admin?</th>
+                        <th>Admin</th>
                     </tr>
                 </thead>
 
@@ -39,7 +39,6 @@
                     }
                     ?>
                 </tbody>
-
             </table>
         </div>
         <?php include 'resources/foot.php'; ?>
